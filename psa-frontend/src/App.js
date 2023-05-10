@@ -1,14 +1,25 @@
-import * as React from "react";
+import { useState, useEffect, Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Cards from "./components/Cards";
 import Users from "./components/Users";
+import cardService from "./services/cards";
 import Footer from "./components/Footer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-export default function App() {
+const App = () => {
+  const [allCards, setAllCards] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    cardService.getAll().then((response) => {
+      setAllCards(response.data);
+      console.log(response.data);
+    });
+  }, []);
+
   const padding = {
     padding: 10,
     fontWeight: 700,
@@ -16,7 +27,7 @@ export default function App() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <CssBaseline />
       <Container maxWidth="md">
         <Box sx={{ bgcolor: "white", height: "100vh" }}>
@@ -50,6 +61,8 @@ export default function App() {
           </Router>{" "}
         </Box>
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
-}
+};
+
+export default App;

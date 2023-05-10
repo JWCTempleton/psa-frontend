@@ -7,11 +7,10 @@ import Paper from "@mui/material/Paper";
 export default function GuestFooter() {
   return (
     <Paper
-      sx={{ marginTop: "calc(10% + 60px)", bottom: 0 }}
+      sx={{ marginTop: "calc(10% + 60px)", bottom: 0, p: 2 }}
       component="footer"
       square
-      variant="outlined"
-      elevation={3}
+      elevation={4}
     >
       <Container maxWidth="lg">
         <Box
