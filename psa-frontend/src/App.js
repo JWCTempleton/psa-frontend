@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Cards from "./components/Cards";
 import Users from "./components/Users";
+import LoginForm from "./components/LoginForm";
 import cardService from "./services/cards";
 import Footer from "./components/Footer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +13,8 @@ import Container from "@mui/material/Container";
 const App = () => {
   const [allCards, setAllCards] = useState([]);
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     cardService.getAll().then((response) => {
@@ -67,6 +70,19 @@ const App = () => {
               <Route path="/cards" element={<Cards />} />
               <Route path="/users" element={<Users />} />
               <Route path="/" element={<Home />} />
+              <Route
+                path="/login"
+                element={
+                  <LoginForm
+                    setUsername={setUsername}
+                    setPassword={setPassword}
+                    username={username}
+                    password={password}
+                    user={user}
+                    setUser={setUser}
+                  />
+                }
+              />
             </Routes>
 
             <div>
