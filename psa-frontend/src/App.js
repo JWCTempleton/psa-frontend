@@ -47,6 +47,20 @@ const App = () => {
               <Link style={padding} color="primary" variant="body2" to="/users">
                 users
               </Link>
+              {user ? (
+                <div>
+                  <p>User Logged in</p>
+                </div>
+              ) : (
+                <Link style={padding} to="/login">
+                  login
+                </Link>
+              )}
+              {!user && (
+                <Link style={padding} to="/signup">
+                  sign up
+                </Link>
+              )}
             </div>
 
             <Routes>
