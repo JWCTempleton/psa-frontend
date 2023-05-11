@@ -7,12 +7,14 @@ import LoginForm from "./components/LoginForm";
 import cardService from "./services/cards";
 import Footer from "./components/Footer";
 import { CssBaseline, Box, Container, Button, Stack } from "@mui/material";
+import RegisterPage from "./components/RegisterPage";
 
 const App = () => {
   const [allCards, setAllCards] = useState([]);
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     cardService.getAll().then((response) => {
@@ -93,6 +95,21 @@ const App = () => {
                     setPassword={setPassword}
                     username={username}
                     password={password}
+                    user={user}
+                    setUser={setUser}
+                  />
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <RegisterPage
+                    setUsername={setUsername}
+                    setPassword={setPassword}
+                    username={username}
+                    password={password}
+                    setName={setName}
+                    name={name}
                     user={user}
                     setUser={setUser}
                   />
