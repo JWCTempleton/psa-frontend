@@ -117,10 +117,8 @@ const App = () => {
               />
             </Routes>
 
-            <div>
-              <Footer />
-            </div>
-          </Router>{" "}
+            <Footer />
+          </Router>
         </Box>
       </Container>
     </Fragment>

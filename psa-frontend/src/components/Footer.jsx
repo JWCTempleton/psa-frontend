@@ -1,40 +1,33 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import BottomNavigation from "@mui/material/BottomNavigation";
 
-export default function GuestFooter() {
+const Footer = () => {
   return (
-    <Paper
-      sx={{ marginTop: "calc(10% + 60px)", bottom: 0, p: 2 }}
-      component="footer"
-      square
-      elevation={4}
-    >
-      <Container maxWidth="lg">
-        <Box
-          sx={{
-            flexGrow: 1,
-            justifyContent: "center",
-            display: "flex",
-            my: 1,
-          }}
-        ></Box>
-
-        <Box
-          sx={{
-            flexGrow: 1,
-            justifyContent: "center",
-            display: "flex",
-            mb: 2,
-          }}
-        >
-          <Typography variant="caption" color="initial">
-            2023 JWCTempleton Designs
-          </Typography>
-        </Box>
-      </Container>
-    </Paper>
+    <>
+      <Paper
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "60px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        elevation={4}
+      >
+        {/* <BottomNavigation> */}
+        <Typography variant="subtitle2">
+          PSA FullStack App, JWCTDesigns
+        </Typography>
+        {/* </BottomNavigation> */}
+      </Paper>
+    </>
   );
-}
+};
+
+export default Footer;
