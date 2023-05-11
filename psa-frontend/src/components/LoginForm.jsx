@@ -104,8 +104,8 @@ const LoginForm = ({
         </Typography> */}
           <Typography>
             {" "}
-            Do you have an account ?
-            <Link sx={{ m: 2 }} href="#">
+            Don't have an account?
+            <Link sx={{ m: 2 }} href="/signup">
               Sign Up
             </Link>
           </Typography>
