@@ -6,9 +6,7 @@ import Users from "./components/Users";
 import LoginForm from "./components/LoginForm";
 import cardService from "./services/cards";
 import Footer from "./components/Footer";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import { CssBaseline, Box, Container, Button, Stack } from "@mui/material";
 
 const App = () => {
   const [allCards, setAllCards] = useState([]);
@@ -22,6 +20,11 @@ const App = () => {
       console.log(response.data);
     });
   }, []);
+
+  const handleLogout = () => {
+    setUser(null);
+    window.localStorage.removeItem("loggedNoteappUser");
+  };
 
   const padding = {
     padding: 10,
@@ -51,9 +54,21 @@ const App = () => {
                 users
               </Link>
               {user ? (
-                <div>
-                  <p>User Logged in</p>
-                </div>
+                <Stack
+                  sx={{ height: 30, mt: 2 }}
+                  alignItems="center"
+                  spacing={2}
+                  direction="row"
+                >
+                  <p>{user.username} logged in</p>{" "}
+                  <Button
+                    variant="contained"
+                    size="small"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </Stack>
               ) : (
                 <Link style={padding} to="/login">
                   login
