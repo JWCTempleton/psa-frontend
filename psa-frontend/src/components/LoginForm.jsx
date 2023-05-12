@@ -34,7 +34,7 @@ const LoginForm = ({
       });
       console.log("user", user);
 
-      window.localStorage.setItem("loggedNoteappUser", JSON.stringify(user));
+      window.localStorage.setItem("loggedCardappUser", JSON.stringify(user));
 
       cardService.setToken(user.token);
       setUser(user);

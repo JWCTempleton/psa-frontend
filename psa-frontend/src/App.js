@@ -23,9 +23,18 @@ const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedCardappUser");
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      setUser(user);
+      cardService.setToken(user.token);
+    }
+  }, []);
+
   const handleLogout = () => {
     setUser(null);
-    window.localStorage.removeItem("loggedNoteappUser");
+    window.localStorage.removeItem("loggedCardappUser");
   };
 
   const padding = {
@@ -93,7 +102,11 @@ const App = () => {
             </div>
 
             <Routes>
-              <Route path="/cards" element={<Cards />} />
+              {user ? (
+                <Route path="/cards" element={<Cards />} />
+              ) : (
+                <Route path="/cards" element={<div>Hello</div>} />
+              )}
               <Route path="/users" element={<Users />} />
               <Route path="/" element={<Home />} />
               <Route
