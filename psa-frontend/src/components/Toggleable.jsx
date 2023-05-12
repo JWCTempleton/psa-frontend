@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 const Toggleable = (props) => {
   const [visible, setVisible] = useState(false);
@@ -13,11 +14,15 @@ const Toggleable = (props) => {
   return (
     <div>
       <div style={hideWhenVisible}>
-        <button onClick={toggleVisibility}>{props.buttonLabel}</button>
+        <Button color="primary" variant="contained" onClick={toggleVisibility}>
+          {props.buttonLabel}
+        </Button>
       </div>
       <div style={showWhenVisible} className="toggleableContent">
+        <Button color="primary" variant="contained" onClick={toggleVisibility}>
+          cancel
+        </Button>
         {props.children}
-        <button onClick={toggleVisibility}>cancel</button>
       </div>
     </div>
   );
