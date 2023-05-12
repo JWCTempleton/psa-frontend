@@ -1,5 +1,11 @@
 import { useState, useEffect, Fragment } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import Home from "./components/Home";
 import Cards from "./components/Cards";
 import Users from "./components/Users";
@@ -137,6 +143,7 @@ const App = () => {
                   />
                 }
               />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
 
             <Footer />
