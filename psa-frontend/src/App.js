@@ -44,17 +44,26 @@ const App = () => {
               <Link style={padding} color="primary" variant="body2" to="/">
                 home
               </Link>
-              <Link
-                style={padding}
-                color="primary"
-                variant="body2"
-                to="/cards  "
-              >
-                cards
-              </Link>
-              <Link style={padding} color="primary" variant="body2" to="/users">
-                users
-              </Link>
+              {user && (
+                <Link
+                  style={padding}
+                  color="primary"
+                  variant="body2"
+                  to="/cards  "
+                >
+                  cards
+                </Link>
+              )}
+              {user && (
+                <Link
+                  style={padding}
+                  color="primary"
+                  variant="body2"
+                  to="/users"
+                >
+                  users
+                </Link>
+              )}
               {user ? (
                 <Stack
                   sx={{ height: 30, mt: 2 }}

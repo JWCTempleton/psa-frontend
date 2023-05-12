@@ -2,7 +2,6 @@ import * as React from "react";
 
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import BottomNavigation from "@mui/material/BottomNavigation";
 
 const Footer = () => {
   return (
