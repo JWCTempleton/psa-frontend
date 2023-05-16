@@ -38,6 +38,8 @@ const App = () => {
     }
   }, []);
 
+  user && console.log("User", user);
+
   const handleLogout = () => {
     setUser(null);
     window.localStorage.removeItem("loggedCardappUser");
@@ -79,6 +81,11 @@ const App = () => {
                   to="/users"
                 >
                   users
+                </Link>
+              )}
+              {user && user.admin && (
+                <Link style={padding} to="/">
+                  Admin
                 </Link>
               )}
               {user ? (
