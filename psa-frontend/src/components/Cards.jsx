@@ -34,7 +34,7 @@ const Cards = ({ allCards }) => {
         Cards
       </Typography>
       <Toggleable buttonLabel="Submit New Card">
-        <form style={{ height: "auto" }}>
+        <form>
           <Paper elevation={10} style={paperStyle}>
             <Grid align="center">
               <h2>Submit New Card</h2>
@@ -82,7 +82,7 @@ const Cards = ({ allCards }) => {
           </Paper>
         </form>
       </Toggleable>
-      <TableContainer component={Paper} sx={{ mt: 3 }}>
+      <TableContainer component={Paper} sx={{ mt: 3, mb: 40 }}>
         <Table sx={{ minWidth: 700 }} aria-label="simple table">
           <TableHead>
             <TableRow>

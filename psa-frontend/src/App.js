@@ -43,6 +43,8 @@ const App = () => {
     window.localStorage.removeItem("loggedCardappUser");
   };
 
+  setTimeout(() => handleLogout(), 600000 * 18);
+
   const padding = {
     padding: 10,
     fontWeight: 700,
