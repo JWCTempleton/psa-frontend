@@ -25,9 +25,9 @@ const App = () => {
   useEffect(() => {
     cardService.getAll().then((response) => {
       setAllCards(response.data);
-      console.log(response.data);
     });
-  }, []);
+    user && console.log("Hello data", user);
+  }, [user]);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem("loggedCardappUser");
@@ -109,7 +109,7 @@ const App = () => {
 
             <Routes>
               {user ? (
-                <Route path="/cards" element={<Cards />} />
+                <Route path="/cards" element={<Cards allCards={allCards} />} />
               ) : (
                 <Route path="/cards" element={<div>Hello</div>} />
               )}

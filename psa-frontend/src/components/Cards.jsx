@@ -6,10 +6,15 @@ import {
   TextField,
   Button,
   Typography,
-  Link,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from "@mui/material";
 
-const Cards = () => {
+const Cards = ({ allCards }) => {
   const paperStyle = {
     padding: 20,
     paddingBottom: 50,
@@ -17,6 +22,9 @@ const Cards = () => {
     margin: "50px auto",
     marginBottom: 120,
   };
+
+  console.log("cards", allCards);
+
   const avatarStyle = { backgroundColor: "#42a5f5" };
   const btnstyle = { margin: "8px 0 16px 0" };
   const textField = { marginBottom: "10px" };
@@ -74,6 +82,39 @@ const Cards = () => {
           </Paper>
         </form>
       </Toggleable>
+      <TableContainer component={Paper} sx={{ mt: 3 }}>
+        <Table sx={{ minWidth: 700 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell align="left">Company</TableCell>
+              <TableCell align="left">Description</TableCell>
+              <TableCell align="left">Notes</TableCell>
+              <TableCell align="left">Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {allCards.map((card) => {
+              return (
+                <TableRow
+                  key={card.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {card.id}
+                  </TableCell>
+                  <TableCell align="left">{card.company}</TableCell>
+                  <TableCell align="left">{card.description}</TableCell>
+                  <TableCell align="left">
+                    {card.notes ? card.notes : "None"}
+                  </TableCell>
+                  <TableCell align="left">{card.status}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Grid>
   );
 };
