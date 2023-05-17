@@ -1,6 +1,13 @@
 import React from "react";
 import Toggleable from "./Toggleable";
 import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
+import {
   Grid,
   Paper,
   TextField,
@@ -33,7 +40,7 @@ const Cards = ({ allCards }) => {
       <Typography variant="h3" sx={{ mt: 3 }}>
         Cards
       </Typography>
-      <Toggleable buttonLabel="Submit New Card">
+      {/* <Toggleable buttonLabel="Submit New Card">
         <form>
           <Paper elevation={10} style={paperStyle}>
             <Grid align="center">
@@ -66,10 +73,7 @@ const Cards = ({ allCards }) => {
               required
               // onChange={({ target }) => setPassword(target.value)}
             />
-            {/* <FormControlLabel
-          control={<Checkbox name="checkedB" color="primary" />}
-          label="Remember me"
-        /> */}
+            
             <Button
               type="submit"
               color="primary"
@@ -81,7 +85,10 @@ const Cards = ({ allCards }) => {
             </Button>
           </Paper>
         </form>
-      </Toggleable>
+      </Toggleable> */}
+      <Link to="/submit">
+        <Button>Submit new Card</Button>
+      </Link>
       <TableContainer component={Paper} sx={{ mt: 3, mb: 40 }}>
         <Table sx={{ minWidth: 700 }} aria-label="simple table">
           <TableHead>

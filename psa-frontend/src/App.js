@@ -152,6 +152,7 @@ const App = () => {
                   />
                 }
               />
+              <Route path="/submit" element={<h1>Submit</h1>} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
 
